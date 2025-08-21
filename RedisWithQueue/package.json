@@ -1,10 +1,10 @@
 {
-  "name": "user-crud-api",
+  "name": "redis-queue-crud",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "index",
   "scripts": {
-    "start": "node index.js",
-    "dev": "nodemon index.js"
+    "start": "node index",
+    "dev": "nodemon index"
   },
   "dependencies": {
     "bullmq": "^5.58.0",
