@@ -3,13 +3,13 @@ const { asyncWraper: asyncWrapper } = require("../../utils");
 
 const deleteUserController = asyncWrapper(async (req, res) => {
   const { id } = req.params;
-  
+
   const result = await deleteUser(id);
-  
+
   res.status(200).json({
     success: true,
     message: result.message,
-    data: result.data
+    data: result.data,
   });
 });
 
