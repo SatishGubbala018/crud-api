@@ -1,4 +1,5 @@
 const mongoose = require("mongoose");
+const queuePublisher = require("../plugins/queuePublisher");
 
 const userSchema = new mongoose.Schema(
   {
@@ -29,14 +30,11 @@ const userSchema = new mongoose.Schema(
       enum: ["user", "admin", "moderator"],
       default: "user",
     },
-    isActive: {
-      type: Boolean,
-      default: true,
-    },
+    isActive: { type: Boolean, default: true },
   },
-  {
-    timestamps: true,
-  }
+  { timestamps: true, versionKey: false }
 );
+
+userSchema.plugin(queuePublisher);
 
 module.exports = mongoose.model("User", userSchema);
